@@ -54,7 +54,9 @@ const QuestionComponent = ({
                                             />
                                         }
                                         label={answer.answerText}
-                                        onClick={() => handleAnswerOptionClick(answer.isCorrect)}
+                                        onClick={() =>
+                                            handleAnswerOptionClick(answer.isCorrect, index)
+                                        }
                                     />
                                 ))}
                             </RadioGroup>
@@ -70,7 +72,7 @@ const QuestionComponent = ({
             </Button>
             <Box sx={{flex: '1 1 auto'}} />
             <Button onClick={handleNext} size='medium' color='primary' variant='text'>
-                {isDisplayResponse ? 'Voir les réponses du quiz.' : 'Voir le score'}
+                {isDisplayResponse ? 'Voir le score.' : 'Voir les réponses du quiz.'}
             </Button>
         </Box>
     </div>

@@ -22,7 +22,9 @@ class Quiz extends Component {
             quizList: [],
             quizSelect: undefined,
             questions: [],
-            score: 0
+            score: 0,
+            previousIndexQuestion: undefined,
+            previousResponseQuestion: undefined
         };
     }
 
@@ -61,14 +63,25 @@ class Quiz extends Component {
         this.setState({quizSelect: value});
     };
 
-    handleAnswerOptionClick = (isCorrect) => {
-        debugger;
-        if (isCorrect) {
-            const {score} = this.state;
-            this.setState({
-                score: score + 1
-            });
-        }
+    handleAnswerOptionClick = (isCorrect, indexQuestion) => {
+        const {previousResponseQuestion, previousIndexQuestion, score} = this.state;
+        let scoreUpdate = score;
+        if (previousIndexQuestion && indexQuestion === previousIndexQuestion)
+            scoreUpdate = previousResponseQuestion
+                ? isCorrect || indexQuestion === 0
+                    ? scoreUpdate
+                    : scoreUpdate - 1
+                : isCorrect
+                ? scoreUpdate + 1
+                : indexQuestion === 0
+                ? scoreUpdate
+                : scoreUpdate - 1;
+        else scoreUpdate = isCorrect ? scoreUpdate + 1 : scoreUpdate;
+        this.setState({
+            previousResponseQuestion: isCorrect,
+            previousIndexQuestion: indexQuestion,
+            score: scoreUpdate
+        });
     };
 
     render() {

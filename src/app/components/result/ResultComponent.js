@@ -3,7 +3,7 @@ import React from 'react';
 import './Result.style.scss';
 
 const ResultComponent = ({score, playAgain, numberOfQuestions}) => {
-    const percent = (score * numberOfQuestions) / 100;
+    const percent = (score / numberOfQuestions) * 100;
     return (
         <div className='score-board'>
             <div className='score' align='center'>
@@ -31,7 +31,7 @@ const ResultComponent = ({score, playAgain, numberOfQuestions}) => {
                                 ? 'percent-good'
                                 : 'percent-medium'
                         }>
-                        {percent} %
+                        {percent.toFixed(2)} %
                     </b>
                 </span>
             </div>
