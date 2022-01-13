@@ -1,0 +1,67 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "parser": "babel-eslint",
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "prettier",
+        "prettier/react"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "prettier"
+    ],
+    "rules": {
+        "comma-dangle": ["warn", "never"],
+        "import/no-named-default": "off",
+        "import/prefer-default-export": "off",
+        "jsx-a11y/anchor-is-valid":"off",
+        "no-alert": "off",
+        "no-await-in-loop":"off",
+        "no-console": "off",
+        "no-debugger":"off",
+        "no-nested-ternary": "off",
+        "no-param-reassign": 0,
+        "no-plusplus":"off",
+        "no-restricted-syntax": ["warn", "ForInStatement", "LabeledStatement", "WithStatement"],
+        "no-underscore-dangle": "off",
+        "prefer-destructuring": ["warn", {"object": true, "array": false}],
+        "prettier/prettier": 0,
+        "quotes":[ "warn", "single"],
+        "react/destructuring-assignment": ["off", "always", { "ignoreClassFields": true }],
+        "react/jsx-filename-extension": [1,{ "extensions": [".js", ".jsx"] }],
+        "react/jsx-no-bind": [ "warn", {
+            "ignoreDOMComponents": true,
+            "ignoreRefs": true,
+            "allowArrowFunctions": true,
+            "allowFunctions": true,
+            "allowBind": true
+        }],
+        "react/jsx-props-no-spreading" : "off",
+        "react/prop-types": 0,
+        "react/no-array-index-key": "off",
+        "react/no-this-in-sfc": "off",
+        "react/state-in-constructor": "off",
+        "sort-imports": ["warn", {
+            "ignoreCase": true,
+            "ignoreDeclarationSort": true,
+            "ignoreMemberSort": true,
+            "memberSyntaxSortOrder": ["single", "all", "multiple", "none"],
+            "allowSeparatedGroups": false
+        }]
+    }
+}
